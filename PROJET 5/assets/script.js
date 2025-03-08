@@ -37,14 +37,24 @@ updateCarousel(currentIndex)
 
 arrowRight.addEventListener("click", () => {
     console.log("➡️ Flèche droite cliquée !");
-    currentIndex = (currentIndex + 1) % slides.length;
+	if(currentIndex < slides.length -1){
+		currentIndex++
+	}
+	else{
+		currentIndex=0
+	}
 	console.log(currentIndex)
     updateCarousel(currentIndex);
 });
 
 arrowLeft.addEventListener("click", () => {
     console.log("⬅️ Flèche gauche cliquée !");
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+	if(currentIndex > 0 ){
+		currentIndex--
+	}
+	else{
+		currentIndex= slides.length -1
+	}
 	console.log(currentIndex)
     updateCarousel(currentIndex);
 });
