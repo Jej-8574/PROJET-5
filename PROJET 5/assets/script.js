@@ -25,17 +25,36 @@ console.log(arrowLeft)
 
 let currentIndex = 0
 
-let images = document.querySelector('#images')
-console.log(images)
+let images = document.querySelector('.banner-img');
+console.log(images);
+
+
+const dots = document.querySelector(".dots")
+
+var dotlist = []
+
+for (var i = 0; i < slides.length; i++){
+	var newdot = document.createElement ("div")
+	newdot.classList.add("dot")
+	if(i===0){
+		newdot.classList.add("dot_selected")
+	}
+	dots.appendChild(newdot)
+	dotlist.push(newdot)
+}
 
 function updateCarousel(currentIndex){
+	console.log(images)
+	console.log(images.src)
 	images.src = "assets/images/slideshow/" + slides[currentIndex].image
 	console.log(slides[currentIndex])
 }	
 updateCarousel(currentIndex)
 
 
+
 arrowRight.addEventListener("click", () => {
+	dotlist[currentIndex].classList.remove("dot_selected")
     console.log("➡️ Flèche droite cliquée !");
 	if(currentIndex < slides.length -1){
 		currentIndex++
@@ -45,9 +64,11 @@ arrowRight.addEventListener("click", () => {
 	}
 	console.log(currentIndex)
     updateCarousel(currentIndex);
+	dotlist[currentIndex].classList.add("dot_selected")
 });
 
 arrowLeft.addEventListener("click", () => {
+	dotlist[currentIndex].classList.remove("dot_selected")
     console.log("⬅️ Flèche gauche cliquée !");
 	if(currentIndex > 0 ){
 		currentIndex--
@@ -57,5 +78,5 @@ arrowLeft.addEventListener("click", () => {
 	}
 	console.log(currentIndex)
     updateCarousel(currentIndex);
+	dotlist[currentIndex].classList.add("dot_selected")
 });
-
