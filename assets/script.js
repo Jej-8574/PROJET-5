@@ -25,8 +25,9 @@ console.log(arrowLeft)
 
 let currentIndex = 0
 
-let images = document.querySelector('#images')
-console.log(images)
+let images = document.querySelector('.banner-img');
+console.log(images);
+
 
 const dots = document.querySelector(".dots")
 
@@ -43,6 +44,8 @@ for (var i = 0; i < slides.length; i++){
 }
 
 function updateCarousel(currentIndex){
+	console.log(images)
+	console.log(images.src)
 	images.src = "assets/images/slideshow/" + slides[currentIndex].image
 	console.log(slides[currentIndex])
 }	
@@ -77,5 +80,3 @@ arrowLeft.addEventListener("click", () => {
     updateCarousel(currentIndex);
 	dotlist[currentIndex].classList.add("dot_selected")
 });
-
-//voir video sur le changement html depuis le JS//
